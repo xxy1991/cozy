@@ -1,0 +1,25 @@
+﻿<metroctrl:MetroWindow x:Class="CozyLauncher.Plugin.Guide.GuideWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CozyLauncher.Plugin.Guide"
+        xmlns:metroctrl="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:ctrl="clr-namespace:CozyLauncher.Plugin.Guide.Template.Ctrl"
+        mc:Ignorable="d"
+        Title="向导" Height="724" Width="800" ShowMaxRestoreButton="False" ShowMinButton="False" ResizeMode="NoResize">
+    <metroctrl:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </metroctrl:MetroWindow.Resources>
+    <StackPanel VerticalAlignment="Top">
+        <ctrl:UserTemplateControl Width="800" TextTemplate="{x:Static local:GuideWindow.ContentData}"></ctrl:UserTemplateControl>
+    </StackPanel>
+</metroctrl:MetroWindow>

@@ -161,3 +161,9 @@ sln/packages/
 /sln/saves
 /BiliDanmaku.exe
 bower_components/
+node_modules/
+/sln/*.opendb
+typings/
+/sln/cozy_thunder.VC.db
+/sln/*.db
+/sln/my_rss.json

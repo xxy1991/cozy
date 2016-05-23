@@ -1,0 +1,164 @@
+﻿<Window x:Class="CozyLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CozyLauncher"
+        xmlns:viewmodel="clr-namespace:CozyLauncher.ViewModels"
+        xmlns:converter="clr-namespace:CozyLauncher.Converters"
+        mc:Ignorable="d"
+        Title="CozyLauncher" Width="745" SizeToContent="Height" WindowStyle="None" Topmost="True"
+        WindowStartupLocation="CenterScreen" Background="#1E1C20" ResizeMode="NoResize" 
+        MouseLeftButtonDown="OnWindowMouseLeftButtonDown" KeyUp="OnQueryKeyUp" Closed="Window_Closed" BorderBrush="#B81D7F" BorderThickness="3">
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel x:Name="ViewModel"></viewmodel:MainWindowViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <converter:BoolToVisibilityConverter x:Key="VisibilityConverter"></converter:BoolToVisibilityConverter>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Grid.Row="0" Foreground="#B81D7F" Background="#1E1C20"
+                 VerticalAlignment="Top" Width="720" TextChanged="OnQueryTextChanged" x:Name="QueryTextBox" BorderThickness="0" FontSize="32"/>
+
+        <ListView MaxHeight="416" ItemsSource="{Binding ResultListView}" SelectedItem="{Binding SelectedResult}"  BorderThickness="0" x:Name="ResultList"
+                  SelectedIndex="{Binding SelectedResultIndex}" Focusable="False" Grid.Row="1" Background="#1E1C20"
+                  Visibility="{Binding IsResultViewVisiable, Converter={StaticResource VisibilityConverter}}">
+            <ListView.Template>
+                <ControlTemplate TargetType="ListView">
+                    <ScrollViewer Focusable="false">
+                        <ScrollViewer.Template>
+                            <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                        CanContentScroll="{TemplateBinding CanContentScroll}"
+                                        CanHorizontallyScroll="False"
+                                        CanVerticallyScroll="False"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}"
+                                        Grid.Column="0"
+                                        Margin="{TemplateBinding Padding}"
+                                        Grid.Row="0" />
+
+                                    <ScrollBar x:Name="PART_VerticalScrollBar"
+                           AutomationProperties.AutomationId="VerticalScrollBar"
+                           Cursor="Arrow"
+                           Grid.Column="1"
+                           Margin="3 0 0 0"
+                           Maximum="{TemplateBinding ScrollableHeight}"
+                           Minimum="0"
+                           Grid.Row="0"
+                           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                           Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                           ViewportSize="{TemplateBinding ViewportHeight}">
+                                        <ScrollBar.Style>
+                                            <Style TargetType="{x:Type ScrollBar}">
+                                                <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+                                                <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+
+                                                <Setter Property="MinWidth" Value="0"/>
+                                                <Setter Property="Width" Value="5"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                                            <DockPanel>
+                                                                <Track x:Name="PART_Track" IsDirectionReversed="true" DockPanel.Dock="Right">
+                                                                    <Track.Thumb>
+                                                                        <Thumb>
+                                                                            <Thumb.Style>
+                                                                                <Style TargetType="{x:Type Thumb}">
+                                                                                    <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                                    <Setter Property="OverridesDefaultStyle" Value="true"/>
+                                                                                    <Setter Property="IsTabStop" Value="false"/>
+                                                                                    <Setter Property="Focusable" Value="false"/>
+                                                                                    <Setter Property="Template">
+                                                                                        <Setter.Value>
+                                                                                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                                                                                <Border CornerRadius="2" DockPanel.Dock="Right" Background="#616161" BorderBrush="Transparent" BorderThickness="0" />
+                                                                                            </ControlTemplate>
+                                                                                        </Setter.Value>
+                                                                                    </Setter>
+                                                                                </Style>
+                                                                            </Thumb.Style>
+                                                                        </Thumb>
+                                                                    </Track.Thumb>
+                                                                </Track>
+                                                            </DockPanel>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ScrollBar.Style>
+                                    </ScrollBar>
+                                </Grid>
+                            </ControlTemplate>
+                        </ScrollViewer.Template>
+                        <VirtualizingStackPanel IsItemsHost="True" />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Height" Value="52"> </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border Name="Bd"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="true">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#B81D7F"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction Command="{Binding DoCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.Resources>
+                            <converter:NameToDataConverter x:Key="IconConverter"></converter:NameToDataConverter>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="52"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="32" Height="32" Margin="2"  Grid.Column="0"
+                               Source="{Binding IcoPath, Converter={StaticResource IconConverter}}"/>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title}" FontSize="22" Foreground="#F0F0F0"></TextBlock>
+                            <TextBlock Text="{Binding SubTitle}" FontSize="14" Foreground="#C1C1C1"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

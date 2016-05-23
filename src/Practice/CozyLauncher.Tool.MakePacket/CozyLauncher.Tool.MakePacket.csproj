@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61D31322-97D6-4552-9167-B94EB6B62B17}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CozyLauncher.Tool.MakePacket</RootNamespace>
+    <AssemblyName>CozyLauncher.Tool.MakePacket</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\CozyLauncher\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CozyLauncher.Plugin.About\CozyLauncher.Plugin.About.csproj">
+      <Project>{cbfe4de1-3a83-481e-9df0-e231253e7a81}</Project>
+      <Name>CozyLauncher.Plugin.About</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.BreakReminder\CozyLauncher.Plugin.BreakReminder.csproj">
+      <Project>{2611f8b6-2a95-4de4-bd29-e758ea1ddb47}</Project>
+      <Name>CozyLauncher.Plugin.BreakReminder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.BrowserBookmark\CozyLauncher.Plugin.BrowserBookmark.csproj">
+      <Project>{12936ab9-cd2d-4655-bfe3-894a4aa70f8c}</Project>
+      <Name>CozyLauncher.Plugin.BrowserBookmark</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Calculator\CozyLauncher.Plugin.Calculator.csproj">
+      <Project>{1ea52a6a-7583-40aa-9cf3-414753bbb4d9}</Project>
+      <Name>CozyLauncher.Plugin.Calculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Command\CozyLauncher.Plugin.Command.csproj">
+      <Project>{eeac9f90-64e7-47ba-b557-020f2ebe02f3}</Project>
+      <Name>CozyLauncher.Plugin.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Core\CozyLauncher.Plugin.Core.csproj">
+      <Project>{909e8061-b711-45f5-8b7b-df6854fe55a1}</Project>
+      <Name>CozyLauncher.Plugin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.DailySentence\CozyLauncher.Plugin.DailySentence.csproj">
+      <Project>{7afc6fbc-8256-46d7-b881-97f45fae48f8}</Project>
+      <Name>CozyLauncher.Plugin.DailySentence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Dirctory\CozyLauncher.Plugin.Dirctory.csproj">
+      <Project>{ebf482fc-3e9e-4ab9-bfbe-caf500964f33}</Project>
+      <Name>CozyLauncher.Plugin.Dirctory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Fnl\CozyLauncher.Plugin.Fnl.csproj">
+      <Project>{2621a426-afe4-4b6f-805f-66c533442076}</Project>
+      <Name>CozyLauncher.Plugin.Fnl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Guide\CozyLauncher.Plugin.Guide.csproj">
+      <Project>{7b4606a7-77d0-42aa-91ed-b5b6963ad830}</Project>
+      <Name>CozyLauncher.Plugin.Guide</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Hardware\CozyLauncher.Plugin.Hardware.csproj">
+      <Project>{ec29c4cd-911f-43a9-83ae-f294a31fada5}</Project>
+      <Name>CozyLauncher.Plugin.Hardware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.InfoCollect\CozyLauncher.Plugin.InfoCollect.csproj">
+      <Project>{ba4eb5cb-e720-41ba-92ab-8dfaad1ba32e}</Project>
+      <Name>CozyLauncher.Plugin.InfoCollect</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Ip\CozyLauncher.Plugin.Ip.csproj">
+      <Project>{6f153c9d-84b4-4c54-a7c8-e75c2c0da0f2}</Project>
+      <Name>CozyLauncher.Plugin.Ip</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.KickassTorrents\CozyLauncher.Plugin.KickassTorrents.csproj">
+      <Project>{b4063b6c-7e29-491a-9b13-9ab6867b0f99}</Project>
+      <Name>CozyLauncher.Plugin.KickassTorrents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.ManualRun\CozyLauncher.Plugin.ManualRun.csproj">
+      <Project>{728f9dbe-8312-47a8-b713-a911571a5dd8}</Project>
+      <Name>CozyLauncher.Plugin.ManualRun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.MouseClick\CozyLauncher.Plugin.MouseClick.csproj">
+      <Project>{86935658-10a9-4c80-a20a-e2bfa77347e7}</Project>
+      <Name>CozyLauncher.Plugin.MouseClick</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.PasswordGenerator\CozyLauncher.Plugin.PasswordGenerator.csproj">
+      <Project>{321277ba-1483-40b4-b658-44167c791e66}</Project>
+      <Name>CozyLauncher.Plugin.PasswordGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Program\CozyLauncher.Plugin.Program.csproj">
+      <Project>{27b8819d-01ea-47a1-8cd9-75ba99ba08cb}</Project>
+      <Name>CozyLauncher.Plugin.Program</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Qrcode\CozyLauncher.Plugin.Qrcode.csproj">
+      <Project>{eab1cd23-bba3-414f-8810-b04415e9c9bd}</Project>
+      <Name>CozyLauncher.Plugin.Qrcode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Setting\CozyLauncher.Plugin.Setting.csproj">
+      <Project>{7a346cff-4b86-467d-b01b-7fd1a200c3e2}</Project>
+      <Name>CozyLauncher.Plugin.Setting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Sys\CozyLauncher.Plugin.Sys.csproj">
+      <Project>{5d3aa1b8-dbc5-44f1-b9f4-44a4ea651df8}</Project>
+      <Name>CozyLauncher.Plugin.Sys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Timestamp\CozyLauncher.Plugin.Timestamp.csproj">
+      <Project>{80fcbda7-f00a-4546-931e-8e59bb7a1944}</Project>
+      <Name>CozyLauncher.Plugin.Timestamp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.WebSearch\CozyLauncher.Plugin.WebSearch.csproj">
+      <Project>{7bddd754-0ca2-4772-b25d-cf4998146fa4}</Project>
+      <Name>CozyLauncher.Plugin.WebSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Plugin.Ydfy\CozyLauncher.Plugin.Ydfy.csproj">
+      <Project>{6caa27e5-e972-4bc5-938e-20aabe70b511}</Project>
+      <Name>CozyLauncher.Plugin.Ydfy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher.Tool.Update\CozyLauncher.Tool.Update.csproj">
+      <Project>{03126f33-4289-4b37-9e51-2c36e298aa0a}</Project>
+      <Name>CozyLauncher.Tool.Update</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CozyLauncher\CozyLauncher.csproj">
+      <Project>{36c16b10-d17d-4a58-bd46-0f938da82cc8}</Project>
+      <Name>CozyLauncher</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
